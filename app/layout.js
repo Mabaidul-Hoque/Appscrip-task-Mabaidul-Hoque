@@ -1,4 +1,5 @@
 
+import { Footer, Header, Navbar } from "@/components/home/ui";
 import "./globals.css";
 
 
@@ -11,10 +12,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body style={{textAlign: "center"}} >
-        <header>header</header>
-        <nav>nav bar</nav>
+        <header className="header"><Header /></header>
+        <nav className="navbar"><Navbar /></nav>
         <main>{children}</main>
-        <footer>Footer</footer>
+        <footer className="footer"><Footer /></footer>
       </body>
     </html>
   );
