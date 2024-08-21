@@ -85,11 +85,8 @@ body {
   overflow-x: hidden;
 }
 
-.header{
-  background-color: black;
-  color: rgba(240, 23, 23, 0.938);
-  min-height: 5vh;
+.navbar{
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
 }
