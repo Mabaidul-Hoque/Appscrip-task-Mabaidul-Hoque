@@ -7,6 +7,9 @@ nav{
     display: flex;
     align-items: center;
 }
+.nav_list{
+    display: none;
+}
 
 
 
@@ -28,7 +31,6 @@ nav{
         font-size: 20px;
     }
     .nav_item:hover{
-        /* text-decoration: underline; */
         border-bottom: 1px solid #252020;
     }
     .activeLink{

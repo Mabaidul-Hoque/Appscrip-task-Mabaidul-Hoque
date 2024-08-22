@@ -25,7 +25,12 @@ const Header = () => {
       {/* Header Lower Part */}
       <div className="header_lower_container">
         <div className="header_lower_container_left">
-          <CiMenuBurger cursor={"pointer"} size={30} className="menu" />
+          <CiMenuBurger
+            cursor={"pointer"}
+            size={30}
+            className="menu"
+            onClick={underDevNotify()}
+          />
           <Image
             width={25}
             height={25}
