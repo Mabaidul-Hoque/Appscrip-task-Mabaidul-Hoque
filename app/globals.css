@@ -85,8 +85,11 @@ body {
   overflow-x: hidden;
 }
 
-.navbar{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.divider{
+  width: 100vw;
+  height: 1px;
+  background-color: rgb(207, 203, 203);
+  margin: 12px 0;
 }
+
+

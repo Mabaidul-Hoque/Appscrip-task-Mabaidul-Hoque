@@ -1,0 +1,21 @@
+
+.discover_products > h2{
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.filter_rec_container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    
+}
+
+.vertical_divider{
+    /* border-right: 5px solid black; */
+    width: 1px;
+    height: 20px;
+    background-color: rgb(158, 152, 152);
+}

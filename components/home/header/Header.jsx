@@ -22,7 +22,7 @@ const Header = () => {
           <FaBars className="icon_height" />
           <Image width={20} height={20} src="/logo.png" alt="logo" />
         </div>
-        <p>LOGO</p>
+        <h2>LOGO</h2>
         <div className="header_lower_container_right">
           <CiSearch className="icon_height" />
           <CiHeart className="icon_height" />
