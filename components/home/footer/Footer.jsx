@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./footer.css";
 import { Divider } from "@/components/ui";
 import { metaMuseLinks } from "@/components/staticData/mettaMuse";
@@ -13,6 +13,18 @@ const Footer = () => {
   const [showMettaMuseContent, setShowMettaMuseContent] = useState(false);
   const [showQuickLinks, setShowQuickLinks] = useState(false);
   const [showSocialMediaIcons, setShowSocialMediaIcons] = useState(false);
+  const [windowSize, setWindowSize] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener("resize", (e) => {
+      if (window.innerWidth > 600) {
+        setShowMettaMuseContent(true);
+        setShowQuickLinks(true);
+        setShowSocialMediaIcons(true);
+      }
+      setWindowSize(window.innerWidth);
+    });
+  }, []);
 
   return (
     <footer>
@@ -90,7 +102,10 @@ const Footer = () => {
         <div className="metta_muse_sec list_style">
           <div
             className="arrow_down"
-            onClick={() => setShowMettaMuseContent(!showMettaMuseContent)}
+            onClick={() => {
+              if (windowSize > 600) return;
+              setShowMettaMuseContent(!showMettaMuseContent);
+            }}
           >
             <h3>metta muse</h3>
             {showMettaMuseContent ? (
@@ -117,7 +132,10 @@ const Footer = () => {
         <div className="quick_links list_style">
           <div
             className="arrow_down"
-            onClick={() => setShowQuickLinks(!showQuickLinks)}
+            onClick={() => {
+              if (windowSize > 600) return;
+              setShowQuickLinks(!showQuickLinks);
+            }}
           >
             <h3>Quick Links</h3>
             {showQuickLinks ? (
@@ -146,7 +164,10 @@ const Footer = () => {
           <div className="follow_us list_style">
             <div
               className="arrow_down"
-              onClick={() => setShowSocialMediaIcons(!showSocialMediaIcons)}
+              onClick={() => {
+                if (windowSize > 600) return;
+                setShowSocialMediaIcons(!showSocialMediaIcons);
+              }}
             >
               <h3>Follow us</h3>
               {showSocialMediaIcons ? (

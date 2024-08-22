@@ -3,6 +3,7 @@ import "./products.css";
 import Filter from "../filter/Filter";
 import Recomendation from "../recommended/Recommended";
 import { Divider } from "@/components/ui";
+import ProductsContainer from "./ProductsContainer";
 
 const products = () => {
   return (
@@ -27,7 +28,7 @@ const products = () => {
 
       <Divider />
       {/* Display Products */}
-      <div></div>
+      <ProductsContainer />
     </div>
   );
 };

@@ -1,0 +1,14 @@
+
+
+.recommended_btn{
+    text-transform: uppercase;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
