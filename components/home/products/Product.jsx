@@ -1,8 +1,29 @@
-// import Image from "next/image";
 import React from "react";
+import { IoMdHeartEmpty } from "react-icons/io";
+import "./products.css";
 
-const Product = () => {
-  return <div></div>;
+const Product = ({ product }) => {
+  return (
+    <div className="product_info_container" key={product.id}>
+      <img
+        src={product.image}
+        width={168}
+        height={224}
+        alt={product.title}
+        className="product_img"
+      />
+      <div className="product_info">
+        <div>
+          <p className="product_title">{product.title}</p>
+          <p className="signin_text">
+            <button className="singin_btn">Sign in</button>
+            or Create an account to see pricing
+          </p>
+        </div>
+        <IoMdHeartEmpty size={50} className="fav_icon" />
+      </div>
+    </div>
+  );
 };
 
 export default Product;

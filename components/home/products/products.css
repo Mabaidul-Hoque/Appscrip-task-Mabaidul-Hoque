@@ -1,16 +1,17 @@
-
+.discover_products{
+    margin: 20px 0;
+}
 .discover_products > h2{
     font-weight: 500;
     font-size: 24px;
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-bottom: 10px; 
 }
 
 .filter_rec_container{
     display: flex;
     justify-content: space-around;
     align-items: center; 
-    
+    margin: 10px 0;
 }
 
 .vertical_divider{
@@ -60,7 +61,7 @@
     font-size: 12px;
 }
 .signin_text{
-    font-size: 10px;
+    font-size: 12px;
 }
 
 
