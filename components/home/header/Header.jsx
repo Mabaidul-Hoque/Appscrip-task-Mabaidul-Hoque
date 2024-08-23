@@ -35,8 +35,8 @@ const Header = () => {
           <img
             width={25}
             height={25}
-            src="/logo.png"
-            alt="logo"
+            src="/Logo.png"
+            alt="Logo"
             className="logo"
             onClick={() => router.push("/")}
           />
