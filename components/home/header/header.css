@@ -58,6 +58,11 @@
     display: none;
 }
 
+.logo{
+    cursor: pointer;
+}
+
+
 
 
 @media screen and (min-width: 600px) {
@@ -79,6 +84,7 @@
     .logo{
         width: 35px;
         height: 35px;
+        cursor: pointer;
     }
     .lang_change{
         display: flex;

@@ -7,8 +7,10 @@ import { IoBagCheckOutline } from "react-icons/io5";
 import HeaderTopMsg from "./HeaderTopMsg";
 import { underDevNotify } from "@/components/utility/underDevNotify";
 import { SlArrowDown } from "react-icons/sl";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
+  const router = useRouter();
   return (
     <header className="header">
       {/* Header Upper Part */}
@@ -37,6 +39,7 @@ const Header = () => {
             src="/logo.png"
             alt="logo"
             className="logo"
+            onClick={() => router.push("/")}
           />
         </div>
 

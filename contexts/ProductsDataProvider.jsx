@@ -14,12 +14,15 @@ export const useProducts = () => {
 const ProductsDataProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [isLodaing, setisLoading] = useState(false);
 
   const data = {
     products,
     setProducts,
     filteredProducts,
     setFilteredProducts,
+    isLodaing,
+    setisLoading,
   };
   return (
     <ProductsContext.Provider value={data}>{children}</ProductsContext.Provider>

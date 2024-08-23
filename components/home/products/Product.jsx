@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import { IoMdHeartEmpty } from "react-icons/io";
 import "./products.css";
+import { toast } from "react-toastify";
 
 const Product = ({ product }) => {
   return (
@@ -16,11 +18,20 @@ const Product = ({ product }) => {
         <div>
           <p className="product_title">{product.title}</p>
           <p className="signin_text">
-            <button className="singin_btn">Sign in </button> or Create an
-            account to see pricing
+            <button
+              className="singin_btn"
+              onClick={() => toast.info("It's under development!")}
+            >
+              Sign in{" "}
+            </button>{" "}
+            or Create an account to see pricing
           </p>
         </div>
-        <IoMdHeartEmpty size={30} className="fav_icon" />
+        <IoMdHeartEmpty
+          size={30}
+          className="fav_icon"
+          onClick={() => toast.info("It's under development!")}
+        />
       </div>
     </div>
   );

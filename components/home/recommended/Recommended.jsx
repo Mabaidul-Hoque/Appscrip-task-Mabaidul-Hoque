@@ -7,7 +7,7 @@ import { getAllProducts } from "@/apis/productsApi";
 import { IoCheckmarkSharp } from "react-icons/io5";
 
 const Recommended = () => {
-  const [showDropdown, setShowDropdown] = useState(true);
+  const [showDropdown, setShowDropdown] = useState(false);
   const [activeSortItem, setActiveSortItem] = useState("");
 
   const { setProducts } = useProducts();

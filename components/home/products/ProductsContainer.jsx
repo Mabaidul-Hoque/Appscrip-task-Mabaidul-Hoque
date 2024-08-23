@@ -4,27 +4,33 @@ import React, { useEffect, useState } from "react";
 import Product from "./Product";
 import "./products.css";
 import { useProducts } from "@/contexts/ProductsDataProvider";
+import { Loader } from "@/components/ui";
 
 const ProductsContainer = () => {
-  const { products, setProducts, filteredProducts } = useProducts();
+  const { products, setProducts, filteredProducts, isLodaing, setisLoading } =
+    useProducts();
   useEffect(() => {
     getProducts();
   }, []);
 
   const getProducts = async () => {
+    setisLoading(true);
     const data = await getAllProducts();
     console.log(data);
     setProducts(data);
+    setisLoading(false);
   };
 
   console.log("filteredProducts", filteredProducts);
 
   return (
     <div className="products_container">
-      {(filteredProducts?.length > 0 ? filteredProducts : products).map(
-        (product) => (
-          <Product product={product} />
+      {!isLodaing ? (
+        (filteredProducts?.length > 0 ? filteredProducts : products).map(
+          (product) => <Product product={product} />
         )
+      ) : (
+        <Loader />
       )}
     </div>
   );

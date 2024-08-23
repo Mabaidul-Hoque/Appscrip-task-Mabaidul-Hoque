@@ -6,7 +6,7 @@ import Recomendation from "../recommended/Recommended";
 import { Divider } from "@/components/ui";
 import ProductsContainer from "./ProductsContainer";
 import { useProducts } from "@/contexts/ProductsDataProvider";
-import { SlArrowRight } from "react-icons/sl";
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 
 const products = () => {
   const {
@@ -15,6 +15,10 @@ const products = () => {
     filteredProducts,
   } = useProducts();
   const [showFilter, setShowFilter] = useState(true);
+  const [showMobileFilter, setShowMobileFilter] = useState(false);
+
+  console.log("click", showMobileFilter);
+
   return (
     <div>
       <div className="discover_products">
@@ -37,15 +41,31 @@ const products = () => {
               : products?.length}{" "}
             ITEMS
           </p>
-          <SlArrowRight className="right_arrow" />
 
-          <button className="filter_btn_m">Filter</button>
+          <div className="mobile_filter_container">
+            <button
+              className="filter_btn_m"
+              onClick={() => {
+                setShowMobileFilter(!showMobileFilter);
+              }}
+            >
+              Filter
+            </button>
 
+            <div className={showMobileFilter && "filter_list_m"}>
+              {showMobileFilter && <Filter />}
+            </div>
+          </div>
           <button
             className="filter_btn_d"
             onClick={() => setShowFilter(!showFilter)}
           >
-            {showFilter ? "Hide Filter" : "Show Filter"}
+            {!showFilter ? (
+              <SlArrowRight className="right_arrow" />
+            ) : (
+              <SlArrowLeft className="right_arrow" />
+            )}
+            <span>{showFilter ? "Hide Filter" : "Show Filter"}</span>
           </button>
         </div>
 
@@ -55,7 +75,7 @@ const products = () => {
 
       <Divider />
       <div className="filter_product_display_container">
-        {showFilter && <Filter />}
+        <div className="filter_list">{showFilter && <Filter />}</div>
 
         {/* Display Products */}
         <ProductsContainer />
