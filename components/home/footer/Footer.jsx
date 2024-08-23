@@ -8,6 +8,7 @@ import { quickLinks } from "@/components/staticData/quickLinks";
 import { socialMediaIcons } from "@/components/staticData/socialMediaIcons";
 import { acceptedCards } from "@/components/staticData/acceptedCards";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+import { toast } from "react-toastify";
 
 const Footer = () => {
   const [showMettaMuseContent, setShowMettaMuseContent] = useState(false);
@@ -44,7 +45,12 @@ const Footer = () => {
               type="text"
               placeholder="Enter your e-mail..."
             />
-            <button className="subs_btn">Subscribe</button>
+            <button
+              className="subs_btn"
+              onClick={() => toast.info("It's under development!")}
+            >
+              Subscribe
+            </button>
           </div>
         </div>
 
@@ -119,7 +125,12 @@ const Footer = () => {
             <ul>
               {metaMuseLinks.map((item) => (
                 <li className="metta_muse_link link_style" key={item.title}>
-                  <a href={item.link}>{item.title}</a>
+                  <a
+                    href={item.link}
+                    onClick={() => toast.info("It's under development!")}
+                  >
+                    {item.title}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -149,7 +160,12 @@ const Footer = () => {
             <ul>
               {quickLinks.map((item) => (
                 <li className="link_style" key={item.title}>
-                  <a href={item.link}>{item.title}</a>
+                  <a
+                    href={item.link}
+                    onClick={() => toast.info("It's under development!")}
+                  >
+                    {item.title}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -181,7 +197,11 @@ const Footer = () => {
               <ul className="social_media_icons">
                 {socialMediaIcons.map((item) => (
                   <li key={item.title}>
-                    <a style={{ color: "white" }} href={item.link}>
+                    <a
+                      style={{ color: "white" }}
+                      href={item.link}
+                      onClick={() => toast.info("It's under development!")}
+                    >
                       {item.icon}
                     </a>
                   </li>
@@ -198,7 +218,11 @@ const Footer = () => {
             <ul className="accepted_cards">
               {acceptedCards.map((item) => (
                 <li className="accepted_card" key={item.title}>
-                  <a style={{ color: "white" }} href={item.link}>
+                  <a
+                    style={{ color: "white" }}
+                    href={item.link}
+                    onClick={() => toast.info("It's under development!")}
+                  >
                     {item.icon}
                   </a>
                 </li>
