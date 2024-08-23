@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 import "./header.css";
 import { CiHeart, CiSearch, CiMenuBurger, CiUser } from "react-icons/ci";
@@ -33,7 +32,7 @@ const Header = () => {
             className="menu"
             onClick={underDevNotify()}
           />
-          <Image
+          <img
             width={25}
             height={25}
             src="/logo.png"
