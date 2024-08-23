@@ -2,11 +2,11 @@
 import { getAllProducts } from "@/apis/productsApi";
 import React, { useEffect, useState } from "react";
 import Product from "./Product";
-import { IoMdHeartEmpty } from "react-icons/io";
 import "./products.css";
+import { useProducts } from "@/contexts/ProductsDataProvider";
 
 const ProductsContainer = () => {
-  const [products, setProducts] = useState([]);
+  const { products, setProducts, filteredProducts } = useProducts();
   useEffect(() => {
     getProducts();
   }, []);
@@ -17,11 +17,15 @@ const ProductsContainer = () => {
     setProducts(data);
   };
 
+  console.log("filteredProducts", filteredProducts);
+
   return (
     <div className="products_container">
-      {products.map((product) => (
-        <Product product={product} />
-      ))}
+      {(filteredProducts.length > 0 ? filteredProducts : products).map(
+        (product) => (
+          <Product product={product} />
+        )
+      )}
     </div>
   );
 };

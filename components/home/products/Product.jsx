@@ -16,11 +16,11 @@ const Product = ({ product }) => {
         <div>
           <p className="product_title">{product.title}</p>
           <p className="signin_text">
-            <button className="singin_btn">Sign in</button>
-            or Create an account to see pricing
+            <button className="singin_btn">Sign in </button> or Create an
+            account to see pricing
           </p>
         </div>
-        <IoMdHeartEmpty size={50} className="fav_icon" />
+        <IoMdHeartEmpty size={30} className="fav_icon" />
       </div>
     </div>
   );
