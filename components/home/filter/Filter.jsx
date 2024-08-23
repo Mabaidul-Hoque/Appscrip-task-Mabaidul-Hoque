@@ -19,7 +19,7 @@ const Filter = () => {
 
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  const { setProducts, setFilteredProducts } = useProducts(); // Assuming you want to update the total products count
+  const { setProducts, setFilteredProducts } = useProducts();
 
   useEffect(() => {
     getFilteredProduct(selectedCategory);

@@ -33,11 +33,12 @@ const products = () => {
         <div className="filter_totalItem_container">
           <p>
             {filteredProducts.length > 0
-              ? filteredProducts.length
-              : products.length}{" "}
+              ? filteredProducts?.length
+              : products?.length}{" "}
             ITEMS
           </p>
           <SlArrowRight className="right_arrow" />
+
           <button className="filter_btn_m">Filter</button>
 
           <button

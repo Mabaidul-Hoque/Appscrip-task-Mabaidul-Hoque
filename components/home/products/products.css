@@ -110,7 +110,7 @@
         width: 80%;
     }
     .discover_products > h2{
-        font-size: 36px;
+        font-size: 32px;
     }
     
     .filter_totalItem_container > p{
@@ -141,11 +141,8 @@
 
 
 @media screen and (min-width: 1024px) {
-    .products_container{
-        /* width: 70vw; */
-    }
     .discover_products > h2{
-        font-size: 38px;
+        font-size: 36px;
     }
     .discover_products{
         width: 50%;
@@ -162,6 +159,12 @@
         font-weight: 700;
         cursor: pointer;
         font-size: 16px;
+    }
+    .vertical_divider{
+        display: none;
+    }
+    .filter_rec_container{
+        padding: 10px 20px;
     }
     
 }
