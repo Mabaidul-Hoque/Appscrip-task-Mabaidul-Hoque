@@ -10,7 +10,7 @@ const Recommended = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [activeSortItem, setActiveSortItem] = useState("");
 
-  const { setProducts } = useProducts();
+  const { setProducts, setisLoading } = useProducts();
 
   function sortProductsByRating(products, item) {
     if (item === "rating")
@@ -20,6 +20,7 @@ const Recommended = () => {
   }
 
   async function sort(item) {
+    setisLoading(true);
     const productsFromAPI = await getAllProducts();
     const sortedProducts = sortProductsByRating(productsFromAPI, item);
 
@@ -27,6 +28,7 @@ const Recommended = () => {
 
     setProducts(sortedProducts);
     setShowDropdown(false);
+    setisLoading(false);
   }
 
   return (

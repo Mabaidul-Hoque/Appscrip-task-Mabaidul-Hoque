@@ -8,9 +8,10 @@ const Loader = () => {
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
+        margin: "0 200px",
       }}
     >
-      Loading...
+      <h2 style={{ width: "200px", height: "50px" }}>Loading...</h2>
     </div>
   );
 };

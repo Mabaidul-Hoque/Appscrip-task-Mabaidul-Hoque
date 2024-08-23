@@ -19,19 +19,20 @@ const Filter = () => {
 
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  const { setProducts, setFilteredProducts } = useProducts();
+  const { setProducts, setFilteredProducts, setisLoading } = useProducts();
 
   useEffect(() => {
     getFilteredProduct(selectedCategory);
   }, [selectedCategory]);
 
   const getFilteredProduct = async (selectedCategory) => {
-    let filteredProducts = [];
+    setisLoading(true);
     if (selectedCategory && selectedCategory !== "all") {
       fetch(`https://fakestoreapi.com/products/category/${selectedCategory}`)
         .then((response) => response.json())
         .then((data) => {
           setFilteredProducts((prev) => [...prev, ...data]);
+          setisLoading(false);
         });
     } else if (selectedCategory === "all") {
       setFilteredProducts([]);
@@ -43,7 +44,9 @@ const Filter = () => {
         jewelery: true,
         electronics: true,
       });
+      setisLoading(false);
     }
+    setisLoading(false);
   };
 
   const handleCategoryChange = (category) => {
