@@ -26,7 +26,7 @@ const ProductsContainer = () => {
   return (
     <div className="products_container">
       {!isLodaing ? (
-        (filteredProducts?.length > 0 ? filteredProducts : products).map(
+        (filteredProducts?.length > 0 ? filteredProducts : products)?.map(
           (product) => <Product product={product} />
         )
       ) : (
