@@ -17,15 +17,15 @@ const Footer = () => {
   const [windowSize, setWindowSize] = useState(0);
 
   useEffect(() => {
-    window.addEventListener("resize", (e) => {
-      if (window.innerWidth > 600) {
-        setShowMettaMuseContent(true);
-        setShowQuickLinks(true);
-        setShowSocialMediaIcons(true);
-      }
-      setWindowSize(window.innerWidth);
-    });
-  }, []);
+    if (window.innerWidth > 600) {
+      setShowMettaMuseContent(true);
+      setShowQuickLinks(true);
+      setShowSocialMediaIcons(true);
+    }
+    setWindowSize(window.innerWidth);
+  }, [showQuickLinks]);
+
+  console.log("windowSize", windowSize);
 
   return (
     <footer>
@@ -144,8 +144,8 @@ const Footer = () => {
           <div
             className="arrow_down"
             onClick={() => {
-              if (windowSize > 600) return;
-              setShowQuickLinks(!showQuickLinks);
+              if (windowSize <= 600) setShowQuickLinks(!showQuickLinks);
+              else return;
             }}
           >
             <h3>Quick Links</h3>
