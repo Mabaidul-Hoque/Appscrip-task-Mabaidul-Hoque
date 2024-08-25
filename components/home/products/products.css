@@ -9,6 +9,11 @@
     color: #252020;
 }
 
+.product_img{
+    max-width: 168px;
+    min-height: 224px;
+}
+
 .filter_rec_container{
     display: flex;
     justify-content: space-between;
@@ -69,7 +74,7 @@
     gap: 15px;
     flex-wrap: wrap;  
     padding: 3rem 0;
-    width: calc(100vw-1rem);
+    width: calc(100vw-4rem-20rem);
 }
 .product_title{
     overflow: hidden;
@@ -119,6 +124,12 @@
     display: none;
 }
 
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 
 @media screen and (min-width: 500px){
@@ -152,6 +163,8 @@
     .product_img{
         width: 200px;
         height: 250px;
+        max-width: 200px;
+        min-height: 250px;
     }
     .product_info{
         justify-content: space-between;

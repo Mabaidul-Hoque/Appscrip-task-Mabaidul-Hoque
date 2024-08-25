@@ -4,6 +4,7 @@ import "./filter.css";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 import { useProducts } from "@/contexts/ProductsDataProvider";
 import { getAllProducts } from "@/apis/productsApi";
+import { productsData } from "@/components/staticData/apiData";
 
 const Filter = () => {
   const [showIdealCat, setShowIdealCat] = useState(true);
@@ -28,16 +29,28 @@ const Filter = () => {
   const getFilteredProduct = async (selectedCategory) => {
     setisLoading(true);
     if (selectedCategory && selectedCategory !== "all") {
-      fetch(`https://fakestoreapi.com/products/category/${selectedCategory}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setFilteredProducts((prev) => [...prev, ...data]);
-          setisLoading(false);
-        });
+      try {
+        const response = await fetch(
+          `https://fakestoreapi.com/products/category/${selectedCategory}`
+        );
+        const data = await response.json();
+        setFilteredProducts((prev) => [...prev, ...data]);
+        setisLoading(false);
+      } catch (error) {
+        const filterProducts = productsData.filter(
+          (product) => product.category === selectedCategory
+        );
+        setFilteredProducts((prev) => [...prev, ...filterProducts]);
+      }
     } else if (selectedCategory === "all") {
       setFilteredProducts([]);
       const data = await getAllProducts();
-      setProducts(data);
+      if (data) {
+        setProducts(data);
+      } else {
+        console.log("else if");
+        setProducts(productsData);
+      }
       setCategories({
         menClothing: true,
         womensClothing: true,

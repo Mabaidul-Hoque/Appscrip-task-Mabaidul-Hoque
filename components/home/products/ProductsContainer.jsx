@@ -5,6 +5,7 @@ import Product from "./Product";
 import "./products.css";
 import { useProducts } from "@/contexts/ProductsDataProvider";
 import { Loader } from "@/components/ui";
+import { productsData } from "@/components/staticData/apiData";
 
 const ProductsContainer = () => {
   const { products, setProducts, filteredProducts, isLodaing, setisLoading } =
@@ -16,12 +17,18 @@ const ProductsContainer = () => {
   const getProducts = async () => {
     setisLoading(true);
     const data = await getAllProducts();
-    console.log(data);
-    setProducts(data);
+    console.log("data from api", data);
+    if (data) {
+      setProducts(data);
+    } else {
+      setProducts(productsData);
+    }
+
     setisLoading(false);
   };
 
   console.log("filteredProducts", filteredProducts);
+  console.log("products", products);
 
   return (
     <div className="products_container">
@@ -30,7 +37,9 @@ const ProductsContainer = () => {
           (product) => <Product product={product} />
         )
       ) : (
-        <Loader />
+        <div className="loader">
+          <Loader />
+        </div>
       )}
     </div>
   );
