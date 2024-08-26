@@ -1,8 +1,10 @@
 
 import { Footer, Header, Navbar } from "@/components/home";
 import "./globals.css";
+import "../components/home/navbar/navbar.css";
 import { ToastContainer } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
+import GlobalDataProvider from "@/contexts/GlobalDataProvider";
 
 
 export const metadata = {
@@ -14,12 +16,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body style={{textAlign: "center"}} >
-        <Header />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <GlobalDataProvider>
+          <Header />
+          <Navbar navListStyle={"nav_list"} 
+          navItemStyle="nav_item_desk"
+          activeLink="active_desk"
+           />
+          <main>{children}</main>
+          <Footer />
 
-        <ToastContainer />
+          <ToastContainer />
+        </GlobalDataProvider>
       </body>
     </html>
   );

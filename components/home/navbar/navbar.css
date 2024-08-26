@@ -11,6 +11,54 @@ nav{
     display: none;
 }
 
+.nav_bar_mobile{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #252020;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 100px;
+}
+
+.nav_list_mobile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    gap: 50px;
+    margin-bottom: 20px;
+    margin-top: 50px; 
+}
+
+
+.nav_item_mobile{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.active_mobile{
+    color: green;
+}
+.nav_item_mobile:hover{
+    border-bottom: 1px solid white;
+}
+
+.close_btn{
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    background-color: inherit;
+    border: none;
+}
+
 
 
 @media screen and (min-width: 600px) {
@@ -23,18 +71,22 @@ nav{
         margin-bottom: 20px;
         margin-top: 50px; 
     }
-    .nav_item{
+    .nav_item_desk{
         text-decoration: none;
         color: #252020;
         text-transform: uppercase;
         font-weight: 700;
         font-size: 20px;
     }
-    .nav_item:hover{
+    .nav_item_desk:hover{
         border-bottom: 1px solid #252020;
     }
-    .activeLink{
+    .active_desk{
         color: blue;
+    }
+    .nav_list_mobile,
+    .nav_bar_mobile{
+        display: none;
     }
     
 }

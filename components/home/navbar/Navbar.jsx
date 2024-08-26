@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
 import "./navbar.css";
-import { Divider } from "@/components/ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { underDevNotify } from "@/components/utility/underDevNotify";
+import { useGlobalData } from "@/contexts/GlobalDataProvider";
 
 const navItems = [
   { name: "Shop", path: "/" },
@@ -13,17 +12,20 @@ const navItems = [
   { name: "Contact Us", path: "/contact" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ navBarStyle, navListStyle, navItemStyle, activeLink }) => {
   const pathname = usePathname();
+  const { showNavbar, setShowNavbar } = useGlobalData();
 
   return (
-    <nav>
-      <ul className="nav_list">
+    <nav className={navBarStyle}>
+      <ul className={navListStyle}>
         {navItems.map((item) => (
-          <li key={item.name}>
+          <li key={item.name} onClick={() => setShowNavbar(!showNavbar)}>
             <Link
               className={
-                pathname === item.path ? "activeLink nav_item" : "nav_item"
+                pathname === item.path
+                  ? `${navItemStyle} ${activeLink}`
+                  : `${navItemStyle}`
               }
               href={item.path}
             >
@@ -32,8 +34,6 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-
-      <Divider />
     </nav>
   );
 };
