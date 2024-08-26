@@ -74,7 +74,8 @@
     gap: 15px;
     flex-wrap: wrap;  
     padding: 3rem 0;
-    width: calc(100vw-4rem-20rem);
+    width: 90vw;
+    min-height: 50vh;
 }
 .product_title{
     overflow: hidden;
@@ -124,17 +125,13 @@
     display: none;
 }
 
-.loader{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 
 
 @media screen and (min-width: 500px){
     .products_container{
         gap: 50px;
+        width: 90vw;
+        /* border: 1px solid red; */
     }
 }
 
@@ -212,5 +209,8 @@
     }
     .filter_list{
         display: block;
+    }
+    .products_container{
+        width: 70vw;
     }
 }

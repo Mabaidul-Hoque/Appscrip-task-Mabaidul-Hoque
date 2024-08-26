@@ -37,9 +37,7 @@ const ProductsContainer = () => {
           (product) => <Product product={product} />
         )
       ) : (
-        <div className="loader">
-          <Loader />
-        </div>
+        <Loader />
       )}
     </div>
   );
